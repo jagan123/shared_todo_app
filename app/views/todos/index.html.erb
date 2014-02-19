@@ -1,2 +1,15 @@
-<h1>Todos#index</h1>
-<p>Find me in app/views/todos/index.html.erb</p>
+<title>Shared Todo App </title>
+<h1>Shared Todo App</h1>
+<p>All your todos here</p>
+
+<%= form_for @new_todo, :url => { :action => "add" }  do |f|  %>
+    <%= f.text_field  :todo_item %>
+    <%= f.submit "Add todo", class: "btn btn-primary" %>
+ <%end%>
+
+
+<% @todo_items.each do |t| %>
+  <li> <%= t.todo_item %> </li>
+<% end %>
+
+<%= link_to "Delete", {:action => 'delete'} %>
